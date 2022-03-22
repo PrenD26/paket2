@@ -39,8 +39,8 @@ class Admin extends CI_Controller
         $config['upload_path']          = './assets/uploads/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['file_name']            = $file_name;
-        $config['max_size']             = 2048;
-        $config['max_width']            = 1000;
+        $config['max_size']             = 4096;
+        $config['max_width']            = 1200;
         $config['max_height']           = 1000;
 
         $this->load->library('upload', $config);
@@ -195,7 +195,7 @@ class Admin extends CI_Controller
         $config['upload_path']          = './assets/uploads/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['file_name']            = $file_name;
-        $config['max_size']             = 2048;
+        $config['max_size']             = 4096;
         $config['max_width']            = 1200;
         $config['max_height']           = 1000;
 
@@ -234,7 +234,7 @@ class Admin extends CI_Controller
                 $config['file_name']            = $file_name;
                 $config['allowed_types']        = 'gif|jpg|jpeg|png';
                 $config['overwrite']            = true;
-                $config['max_size']             = 2048;
+                $config['max_size']             = 4096;
                 $config['max_width']            = 1200;
                 $config['max_height']           = 1000;
 

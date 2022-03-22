@@ -71,7 +71,7 @@
                            <input type="file" class="custom-file-input" id="image" name="image" onchange="previewImg()">
                            <label class="custom-file-label" for="image">Choose file</label>
                        </div>
-                       <small>Max size is 2MB | Max dimension is 1000x1000PX</small>
+                       <small>Max size is 4MB | Max dimension is 1200 x 800</small>
                    </div>
                    <div class="form-group">
                        <label>Keterangan</label>
