@@ -11,7 +11,7 @@
 
                 <div class="card-body">
                     <div class="col-12">
-                        <div class="hero text-white hero-bg-image hero-bg-parallax align-items-center" style="height: 320px;" data-background="<?= base_url('assets/uploads/') . $fas['image'] ?>">
+                        <div class="hero text-white hero-bg-image hero-bg align-items-center" style="height: 320px;" data-background="<?= base_url('assets/uploads/') . $fas['image'] ?>">
                             <div class="hero-inner text-center">
                             </div>
                         </div>
