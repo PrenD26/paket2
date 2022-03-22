@@ -16,8 +16,12 @@ class Tamu extends CI_Controller
 
     public function index()
     {
-
-        $this->load->view('layout_T/header');
+        $data = [
+            'title' => 'Home',
+            'kamar' => $this->kamar->getdata(),
+            'fask' => $this->fas->getfask(),
+        ];
+        $this->load->view('layout_T/header', $data);
         $this->load->view('layout_T/sidebar');
         $this->load->view('tamu/home');
         $this->load->view('layout_T/footer');
@@ -25,10 +29,11 @@ class Tamu extends CI_Controller
     public function kamar()
     {
         $data = [
+            'title' => 'Kamar',
             'kamar' => $this->kamar->getdata(),
             'fask' => $this->fas->getfask(),
         ];
-        $this->load->view('layout_T/header');
+        $this->load->view('layout_T/header', $data);
         $this->load->view('layout_T/sidebar');
         $this->load->view('tamu/kamar', $data);
         $this->load->view('layout_T/footer');
@@ -36,10 +41,11 @@ class Tamu extends CI_Controller
     public function view($id_kamar)
     {
         $data = [
+            'title' => 'Detail Kamar',
             'fas' => $this->kamar->v_id($id_kamar),
             'fask' => $this->fas->v_id($id_kamar),
         ];
-        $this->load->view('layout_T/header');
+        $this->load->view('layout_T/header', $data);
         $this->load->view('layout_T/sidebar');
         $this->load->view('tamu/view', $data);
         $this->load->view('layout_T/footer');
@@ -48,9 +54,10 @@ class Tamu extends CI_Controller
     public function fashotel()
     {
         $data = [
+            'title' => 'Fasilitas Hotel',
             'fash' => $this->fas->getfash(),
         ];
-        $this->load->view('layout_T/header');
+        $this->load->view('layout_T/header', $data);
         $this->load->view('layout_T/sidebar');
         $this->load->view('tamu/fashotel', $data);
         $this->load->view('layout_T/footer');
@@ -61,9 +68,10 @@ class Tamu extends CI_Controller
             redirect('home');
         }
         $data = [
+            'title' => 'Pesan',
             'kamar' => $this->kamar->getdata(),
         ];
-        $this->load->view('layout_T/header');
+        $this->load->view('layout_T/header', $data);
         $this->load->view('layout_T/sidebar');
         $this->load->view('tamu/pesan', $data);
         $this->load->view('layout_T/footer');
@@ -80,9 +88,10 @@ class Tamu extends CI_Controller
         $this->form_validation->set_rules('id_kamar', 'Tipe Kamar', 'required');
         if ($this->form_validation->run() == FALSE) {
             $datax = [
+                'title' => 'Pesan',
                 'kamar' => $this->kamar->getdata(),
             ];
-            $this->load->view('layout_T/header');
+            $this->load->view('layout_T/header', $datax);
             $this->load->view('layout_T/sidebar');
             $this->load->view('tamu/pesan', $datax);
             $this->load->view('layout_T/footer');
@@ -121,9 +130,10 @@ class Tamu extends CI_Controller
 
 
             $datax = [
+                'title' => 'History',
                 'data' => $this->res->finddetail($id_user),
             ];
-            $this->load->view('layout_T/header');
+            $this->load->view('layout_T/header', $datax);
             $this->load->view('layout_T/sidebar');
             $this->load->view('tamu/history', $datax);
             $this->load->view('layout_T/footer');
