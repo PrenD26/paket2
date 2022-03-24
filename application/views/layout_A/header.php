@@ -18,4 +18,32 @@
     <link rel="stylesheet" href="<?= base_url('assets/stisla') ?>/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url('assets/stisla') ?>/assets/css/components.css">
     <link rel="shortcut icon" href="<?= base_url('assets') ?>/icon.png">
+    <style>
+        .ignielToTop {
+            visibility: hidden;
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            bottom: 50px;
+            right: 20px;
+            z-index: 99;
+            cursor: pointer;
+            border-radius: 100px;
+            opacity: 0;
+            -webkit-transform: translateZ(0);
+            transition: all 0.5s;
+            background: #6777f0 url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z' fill='%23fff'/%3E%3C/svg%3E") no-repeat center center;
+        }
+
+        .ignielToTop:hover {
+            opacity: 1;
+            background: #1d2129 url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z' fill='%23fff'/%3E%3C/svg%3E") no-repeat center center;
+        }
+
+        .ignielToTop.show {
+            visibility: visible;
+            bottom: 20px;
+            opacity: 1;
+        }
+    </style>
 </head>

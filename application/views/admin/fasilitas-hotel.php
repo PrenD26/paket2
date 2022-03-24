@@ -1,19 +1,13 @@
    <!-- Main Content -->
    <div class="main-content">
-
        <section class="section">
-
-
+           <?php if ($this->session->flashdata('error')) : ?>
+               <div class="flash-data2" data-flashdata="<?= $this->session->flashdata('error'); ?>"></div>
+           <?php endif ?>
+           <?php if ($this->session->flashdata('create')) : ?>
+               <div class="flash-data" data-flashdata="<?= $this->session->flashdata('create'); ?>"></div>
+           <?php endif ?>
            <div class="section-body">
-               <?php if ($this->session->flashdata('dashboard')) : ?>
-                   <div class="flash-data10" data-flashdata="<?= $this->session->flashdata('dashboard'); ?>"></div>
-               <?php endif ?>
-               <?php if ($this->session->flashdata('error')) : ?>
-                   <div class="flash-data2" data-flashdata="<?= $this->session->flashdata('error'); ?>"></div>
-               <?php endif ?>
-               <?php if ($this->session->flashdata('create')) : ?>
-                   <div class="flash-data" data-flashdata="<?= $this->session->flashdata('create'); ?>"></div>
-               <?php endif ?>
                <div class="card card-primary">
                    <div class="card-header">
                        <h4><?= $title ?></h4>
@@ -30,22 +24,22 @@
                                        <th>
                                            No
                                        </th>
-                                       <th>Tipe Kamar</th>
-                                       <th>Jumlah Kamar</th>
+                                       <th>Nama Fasilitas</th>
+                                       <th>Keterangan</th>
                                        <th>Aksi</th>
                                    </tr>
                                </thead>
                                <tbody>
                                    <?php $no = 1;
-                                    foreach ($kamar as $kmr) : {
+                                    foreach ($fash as $fh) : {
                                         } ?>
-                                       <tr class="text-center">
-                                           <td><?= $no++ ?></td>
-                                           <td><?= $kmr['tipe_kamar'] ?></td>
-                                           <td><?= $kmr['jumlah_kamar'] ?></td>
-                                           <td>
-                                               <button class="btn btn-success tombol-fire mr-1" data-toggle="modal" data-target="#update<?= $kmr['id_kamar'] ?>">Ubah </button>
-                                               <a href="<?= base_url('admin/delete_kamar/' . $kmr['id_kamar']) ?>" class="btn btn-danger tombol-hapus">Hapus</a>
+                                       <tr>
+                                           <td class="text-center"><?= $no++ ?></td>
+                                           <td class="text-center"><?= $fh['nama_fasilitas'] ?></td>
+                                           <td><?= $fh['keterangan'] ?></td>
+                                           <td class="text-center">
+                                               <button class="btn btn-success mb-1 mr-1 tombol-fire" data-toggle="modal" data-target="#update<?= $fh['id_fasilitas'] ?>">Ubah </button>
+                                               <a href="<?= base_url('admin/delete_fas_hotel/' . $fh['id_fasilitas']) ?>" class="btn btn-danger tombol-hapus">Hapus</a>
                                            </td>
                                        </tr>
                                    <?php endforeach ?>
@@ -57,34 +51,34 @@
            </div>
        </section>
    </div>
+
    <div class="modal fade" tabindex="-1" role="dialog" id="create">
        <div class="modal-dialog modal-dialog-centered" role="document">
            <div class="modal-content">
                <div class="modal-header">
-                   <h5 class="modal-title">Create Kamar</h5>
+                   <h5 class="modal-title">Create Fasilitas Hotel</h5>
                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                        <span aria-hidden="true">&times;</span>
                    </button>
                </div>
                <div class="modal-body">
-                   <?php echo form_open_multipart('admin/create_kamar'); ?>
+                   <?php echo form_open_multipart('admin/create_fas_hotel'); ?>
                    <img alt="image" src="<?= base_url('assets/preview.jpg') ?>" style="width:450px;height:200px;" class=" img-preview mb-4">
                    <div class="form-group">
-                       <label>Tipe Kamar</label>
-                       <input type="text" class="form-control" name="tipe_kamar" placeholder="Masukkan Tipe Kamar">
-                   </div>
-                   <div class="form-group">
-                       <label>Jumlah Kamar</label>
-                       <input type="number" placeholder="Masukkan Jumlah Kamar" class="form-control" name="jumlah_kamar">
+                       <label>Nama Fasilitas</label>
+                       <input type="text" class="form-control" name="nama_fasilitas" placeholder="Masukkan Nama Fasilitas Hotel">
                    </div>
                    <div class="form-group">
                        <label>Foto</label>
                        <div class="custom-file">
                            <input type="file" class="custom-file-input" id="image" name="image" onchange="previewImg()">
                            <label class="custom-file-label" for="image">Choose file</label>
-
                        </div>
                        <small>Max size is 4MB | Max dimension is 1200 x 800</small>
+                   </div>
+                   <div class="form-group">
+                       <label>Keterangan</label>
+                       <textarea class="form-control" name="keterangan" style="height:120px;" placeholder="Masukkan Keterangan"></textarea>
                    </div>
                </div>
                <div class="modal-footer bg-whitesmoke br">
@@ -97,26 +91,23 @@
        </div>
    </div>
 
-   <?php foreach ($kamar as $kmr) : ?>
-       <div class="modal fade" tabindex="-1" role="dialog" id="update<?= $kmr['id_kamar'] ?>">
+   <?php foreach ($fash as $fh) : {
+        } ?>
+       <div class="modal fade" tabindex="-1" role="dialog" id="update<?= $fh['id_fasilitas'] ?>">
            <div class="modal-dialog modal-dialog-centered" role="document">
                <div class="modal-content">
                    <div class="modal-header">
-                       <h5 class="modal-title">Update Kamar</h5>
+                       <h5 class="modal-title">Update Fasilitas Hotel</h5>
                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                        </button>
                    </div>
                    <div class="modal-body">
-                       <?php echo form_open_multipart('admin/update_kamar/' . $kmr['id_kamar']); ?>
-                       <img alt="image" src="<?= base_url('assets/uploads/' . $kmr['image']) ?>" style="width:450px;height:200px;" class=" img-preview mb-4">
+                       <?php echo form_open_multipart('admin/update_fas_hotel/' . $fh['id_fasilitas']); ?>
+                       <img alt="image" src="<?= base_url('assets/uploads/' . $fh['image']) ?>" style="width:450px;height:200px;" class=" img-preview mb-4">
                        <div class="form-group">
-                           <label>Tipe Kamar</label>
-                           <input type="text" class="form-control" value="<?= $kmr['tipe_kamar'] ?>" name="tipe_kamar" placeholder="Masukkan Tipe Kamar">
-                       </div>
-                       <div class="form-group">
-                           <label>Jumlah Kamar</label>
-                           <input type="number" placeholder="Masukkan Jumlah Kamar" class="form-control" value="<?= $kmr['jumlah_kamar'] ?>" name="jumlah_kamar">
+                           <label>Nama Fasilitas</label>
+                           <input type="text" class="form-control" value="<?= $fh['nama_fasilitas'] ?>" name="nama_fasilitas" placeholder="Masukkan Nama Fasilitas">
                        </div>
                        <div class="form-group">
                            <label>Foto</label>
@@ -125,6 +116,10 @@
                                <label class="custom-file-label" for="image">Choose file</label>
                            </div>
                            <small>Max size is 2MB | Max dimension is 1000x1000PX</small>
+                       </div>
+                       <div class="form-group">
+                           <label>Keterangan</label>
+                           <textarea name="keterangan" class="form-control" style="height: 120px;" placeholder="Masukkan Keterangan"><?= $fh['keterangan'] ?></textarea>
                        </div>
                    </div>
                    <div class="modal-footer bg-whitesmoke br">

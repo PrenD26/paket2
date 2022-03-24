@@ -11,7 +11,7 @@ class Auth extends CI_Controller
     public function index()
     {
         if ($this->session->userdata('username')) {
-            redirect('kmr');
+            redirect('admin/kamar');
         }
         $this->load->view('auth');
     }  
@@ -34,7 +34,7 @@ class Auth extends CI_Controller
                 $this->session->set_userdata($data);
                 if ($user['id_level'] == '1') {
                     $this->session->set_flashdata('dashboard', 'Hallo');
-                    redirect('kmr');
+                    redirect('admin/kamar');
                 } else {
                     $this->session->set_flashdata('dashboard', 'Hallo');
                     redirect('resepsionis');

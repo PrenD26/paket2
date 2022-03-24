@@ -42,20 +42,20 @@
 
                     <ul class="navbar-nav">
                         <?php if ($this->session->userdata('id_level') == "1") : ?>
-                            <li class="nav-item <?php if ($this->uri->segment(1) == 'kmr' || $this->uri->segment(1) == 'admin') {
+                            <li class="nav-item <?php if ($this->uri->segment(2) == 'kamar' || $this->uri->segment(2) == 'update_kamar' || $this->uri->segment(2) == 'create_kamar') {
                                                     echo ('active');
                                                 } ?>">
-                                <a href="<?= base_url('kmr') ?>" class="nav-link"><i class="fas fa-bed"></i><span>Kamar</span></a>
+                                <a href="<?= base_url('admin/kamar') ?>" class="nav-link"><i class="fas fa-bed"></i><span>Kamar</span></a>
                             </li>
-                            <li class="nav-item <?php if ($this->uri->segment(1) == 'fask') {
+                            <li class="nav-item <?php if ($this->uri->segment(2) == 'fasilitas-kamar') {
                                                     echo ('active');
                                                 } ?> ">
-                                <a href="<?= base_url('fask') ?>" class="nav-link"><i class="fa-solid fa-hot-tub-person"></i><span>Fasilitas Kamar</span></a>
+                                <a href="<?= base_url('admin/fasilitas-kamar') ?>" class="nav-link"><i class="fa-solid fa-hot-tub-person"></i><span>Fasilitas Kamar</span></a>
                             </li>
-                            <li class="nav-item <?php if ($this->uri->segment(1) == 'fash') {
+                            <li class="nav-item <?php if ($this->uri->segment(2) == 'fasilitas-hotel') {
                                                     echo ('active');
                                                 } ?>">
-                                <a href="<?= base_url('fash') ?>" class="nav-link"><i class="fa-solid fa-martini-glass-citrus"></i><span>Fasilitas Hotel</span></a>
+                                <a href="<?= base_url('admin/fasilitas-hotel') ?>" class="nav-link"><i class="fa-solid fa-martini-glass-citrus"></i><span>Fasilitas Hotel</span></a>
                             </li>
                         <?php endif ?>
 
@@ -71,3 +71,4 @@
 
                 </div>
             </nav>
+            <div class='ignielToTop'> </div>

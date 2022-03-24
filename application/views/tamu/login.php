@@ -63,7 +63,7 @@
                                         </p>
                                     </div>
                                     <div class="form-group">
-                                        <a href="<?= base_url('register') ?>" class="btn btn-success btn-block btn-lg"> Login</a>
+                                        <a href="<?= base_url('register') ?>" class="btn btn-success btn-block btn-lg"> Register</a>
                                     </div>
                                     <div class="text-danger text-center">
                                         <?= $this->session->flashdata('adminbug');

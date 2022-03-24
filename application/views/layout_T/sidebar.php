@@ -16,6 +16,18 @@
                         </div>
                         <a href="<?= base_url('log') ?>" class="btn btn-light ml-3"> Login</a>
                     <?php endif ?>
+                    <?php if ($this->session->userdata('id_level') == 1) : ?>
+                        <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+
+                                <div class="d-sm-none d-lg-inline-block">Hi, <?= $this->session->userdata('nama') ?></div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a href="<?= base_url('admin') ?>" class="dropdown-item has-icon text-danger">
+                                    <i class="fas fa-sign-out-alt"></i> Back To Admin Menu
+                                </a>
+                            </div>
+                        </li>
+                    <?php endif ?>
                     <?php if ($this->session->userdata('id_level') == 3) : ?>
                         <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
 
@@ -79,3 +91,4 @@
 
                 </div>
             </nav>
+            <div class='ignielToTop'> </div>

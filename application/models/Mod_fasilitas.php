@@ -8,6 +8,7 @@ class Mod_fasilitas extends CI_Model
     private $_vfask = 'view_fk';
     private $_fash = 'fasilitas_hotel';
 
+    //Manipulasi data fasilitas kamar
     public function getfask()
     {
         return $this->db->get($this->_vfask)->result_array();
@@ -33,7 +34,7 @@ class Mod_fasilitas extends CI_Model
     
 
 
-
+  //Manipulasi data fasilitas Hotel
     public function getfash()
     {
         return $this->db->get($this->_fash)->result_array();

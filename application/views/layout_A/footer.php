@@ -16,7 +16,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="<?= base_url('assets/stisla') ?>/assets/js/stisla.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
 <!-- JS Libraies -->
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
@@ -109,12 +109,12 @@
         })
     }
 
-    const flashData8 = $('.flash-data8').data('flashdata');
-    if (flashData8) {
+    const flashData2 = $('.flash-data2').data('flashdata');
+    if (flashData2) {
         Toast.fire({
             icon: 'error',
             timer: 1500,
-            title: flashData8,
+            title: flashData2,
             customClass: {
                 popup: 'colored-toast'
             },
@@ -132,6 +132,22 @@
             },
         })
     }
+    $(document).scroll(function() {
+        return $(document).scrollTop() > 300 ? $('.ignielToTop').addClass('show') : $('.ignielToTop').removeClass('show')
+    }), $('.ignielToTop').click(function() {
+        return $('html,body').animate({
+            scrollTop: '0'
+        });
+    });
+    $("body").niceScroll({
+        cursorcolor: "#6777f0",
+        cursorborder: 'none',
+        cursorwidth: 10,
+        cursorfixedheight: 115,
+        cursoropacitymin: 0.4,
+        cursorborderradius: 6,
+        autohidemode: 'leave'
+    });
 </script>
 </body>
 

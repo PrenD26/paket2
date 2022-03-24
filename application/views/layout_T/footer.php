@@ -3,7 +3,7 @@
         Copyright &copy; 2022 <div class="bullet"></div> Create By <a href="https://github.com/PrenD26">Frendy</a> | Made With <a href="https://github.com/stisla/stisla">Stisla</a>
     </div>
     <div class="footer-right">
-       v1.0
+        v1.0
     </div>
 </footer>
 </div>
@@ -47,6 +47,22 @@
     <script src="<?= base_url('assets/stisla') ?>/assets/js/scripts.js"></script>
     <script src="<?= base_url('assets/stisla') ?>/assets/js/custom.js"></script>
     <script>
+        $(document).scroll(function() {
+            return $(document).scrollTop() > 300 ? $('.ignielToTop').addClass('show') : $('.ignielToTop').removeClass('show')
+        }), $('.ignielToTop').click(function() {
+            return $('html,body').animate({
+                scrollTop: '0'
+            });
+        });
+        $("body").niceScroll({
+            cursorcolor: "#6777f0",
+            cursorborder: 'none',
+            cursorwidth: 10,
+            cursorfixedheight: 115,
+            cursoropacitymin: 0.4,
+            cursorborderradius: 6,
+            autohidemode: 'leave'
+        });
         $("#table-1").dataTable({
             "columnDefs": [{
                 "sortable": true,

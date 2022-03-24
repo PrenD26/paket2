@@ -26,6 +26,7 @@ class Tamu extends CI_Controller
         $this->load->view('tamu/home');
         $this->load->view('layout_T/footer');
     }
+
     public function kamar()
     {
         $data = [
@@ -38,6 +39,8 @@ class Tamu extends CI_Controller
         $this->load->view('tamu/kamar', $data);
         $this->load->view('layout_T/footer');
     }
+
+    
     public function view($id_kamar)
     {
         $data = [
